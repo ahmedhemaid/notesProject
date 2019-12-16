@@ -74,6 +74,7 @@
         android:layout_marginLeft="23dp"
         ></Button>
 <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycler_view_notebooks"
     android:layout_width="250dp"
     android:layout_height="166dp"
     android:layout_marginTop="197dp"
