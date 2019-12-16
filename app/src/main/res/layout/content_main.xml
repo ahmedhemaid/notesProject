@@ -76,7 +76,7 @@
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler_view_notebooks"
     android:layout_width="250dp"
-    android:layout_height="166dp"
+    android:layout_height="170dp"
     android:layout_marginTop="197dp"
     android:layout_marginLeft="137dp"
     android:orientation="horizontal">
@@ -113,6 +113,7 @@
         android:textColor="#7B1E58"
         ></TextView>
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/note_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="360dp"
         android:layout_marginTop="424dp"
