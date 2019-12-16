@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SingupActivity"></activity>
-        <activity android:name=".SinginActicity" />
-        <activity android:name=".ForgetPassActivity" />
-        <activity android:name=".SplashActivity" />
+        <activity android:name=".Activities.NoteBooksShowAll"></activity>
+        <activity android:name=".Activities.SingupActivity" />
+        <activity android:name=".Activities.SinginActicity" />
+        <activity android:name=".Activities.ForgetPassActivity" />
+        <activity android:name=".Activities.SplashActivity" />
+        <activity android:name=".Activities.NotesShowAll"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

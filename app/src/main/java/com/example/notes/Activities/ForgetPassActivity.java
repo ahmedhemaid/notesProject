@@ -1,10 +1,12 @@
-package com.example.notes;
+package com.example.notes.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.notes.R;
 
 public class ForgetPassActivity extends AppCompatActivity {
 
@@ -14,7 +16,7 @@ public class ForgetPassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forget_pass);
     }
     public void back(View view) {
-        Intent back = new Intent(this,SinginActicity.class);
+        Intent back = new Intent(this, SinginActicity.class);
         startActivity(back);
     }
 }

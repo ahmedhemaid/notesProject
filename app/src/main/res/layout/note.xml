@@ -33,7 +33,7 @@
         ></TextView>
     <TextView
         android:id="@+id/note_context"
-        android:layout_width="292dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="13sp"
         android:textColor="#4D5468"

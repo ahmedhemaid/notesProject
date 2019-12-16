@@ -1,7 +1,9 @@
-package com.example.notes;
+package com.example.notes.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.notes.R;
 import com.example.notes.adapters.NotesAdapter;
 import com.example.notes.adapters.horizontalAdapter;
 import com.example.notes.classes.Note;
@@ -76,36 +78,15 @@ public class MainActivity extends AppCompatActivity {
         noteAdapter = new NotesAdapter(notes);
         noteRecyclerView.setAdapter(noteAdapter);
 
-        // fab
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void OnClickShowAllNotebooks(View view) {
+        Intent intent=new Intent(this,NoteBooksShowAll.class);
+        startActivity(intent);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void OnClickShowAllNotes(View view) {
+        Intent intent=new Intent(this,NotesShowAll.class);
+        startActivity(intent);
     }
 }
