@@ -16,7 +16,7 @@
         <activity android:name=".Activities.SplashActivity" />
         <activity android:name=".Activities.NotesShowAll"></activity>
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Activities.homeee"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

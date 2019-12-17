@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Notes</string>
     <string name="action_settings">Settings</string>
+    <string name="notebooks">Notebooks are the best place \n to manage your Notes</string>
+    <string name="notebook2">Simply create your note and \n add it to your favorite \n notebook</string>
+    <string name="check_email">We’ve sent instructions on how to reset \n The password (also check the Spam folder).</string>
 </resources>

@@ -83,7 +83,7 @@ public class NotesShowAll extends AppCompatActivity {
         notesAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this, MainActivity.class);
         startActivity(intent);
 
     }

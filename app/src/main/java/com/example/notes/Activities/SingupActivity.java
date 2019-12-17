@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.notes.Activities.MainActivity;
-import com.example.notes.Activities.SinginActicity;
 import com.example.notes.R;
 
 public class SingupActivity extends AppCompatActivity {
@@ -18,7 +16,7 @@ public class SingupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_singup);
     }
     public void home(View view) {
-        Intent home = new Intent(this, MainActivity.class);
+        Intent home = new Intent(this, homeee.class);
         startActivity(home);
     }
 

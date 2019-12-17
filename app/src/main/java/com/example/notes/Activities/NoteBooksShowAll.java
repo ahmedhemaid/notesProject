@@ -2,7 +2,6 @@ package com.example.notes.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 
 import com.example.notes.R;
 import com.example.notes.adapters.AllNotebooksAdapter;
-import com.example.notes.adapters.horizontalAdapter;
 import com.example.notes.classes.NoteBook;
 
 import java.util.ArrayList;
@@ -98,7 +96,7 @@ public class NoteBooksShowAll extends AppCompatActivity {
         bookAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this,MainActivity.class);
+        Intent intent=new Intent(this, homeee.class);
         startActivity(intent);
 
     }

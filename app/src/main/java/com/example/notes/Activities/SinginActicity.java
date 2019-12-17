@@ -16,7 +16,7 @@ public class SinginActicity extends AppCompatActivity {
         setContentView(R.layout.activity_singin);
     }
     public void home(View view) {
-        Intent home = new Intent(this, MainActivity.class);
+        Intent home = new Intent(this, homeee.class);
         startActivity(home);
     }
     public void singup(View view) {
