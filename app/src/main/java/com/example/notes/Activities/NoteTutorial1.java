@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.notes.R;
 
-public class homenotebok extends AppCompatActivity {
+public class NoteTutorial1 extends AppCompatActivity {
 Button btn_next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
+        setContentView(R.layout.activity_note_tutorial1);
         btn_next = findViewById(R.id.btn_next);
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,5 +23,10 @@ Button btn_next;
                 startActivity(intent);
             }
         });
+    }
+
+    public void OnClickNextInFirstPage(View view) {
+        Intent intent=new Intent(this,NoteTutorial2.class);
+        startActivity(intent);
     }
 }

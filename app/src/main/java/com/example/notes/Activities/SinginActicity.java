@@ -13,10 +13,10 @@ public class SinginActicity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_singin);
+        setContentView(R.layout.activity_singup);
     }
     public void home(View view) {
-        Intent home = new Intent(this, homeee.class);
+        Intent home = new Intent(this, NoteTutorial1.class);
         startActivity(home);
     }
     public void singup(View view) {

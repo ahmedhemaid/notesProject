@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.homenotebok">
+    tools:context=".Activities.NoteTutorial1">
 
     <ImageView
         android:id="@+id/imageView"
@@ -68,6 +68,7 @@
         app:srcCompat="@drawable/switchh" />
 
     <Button
+        android:onClick="OnClickNextInFirstPage"
         android:id="@+id/btn_next"
         android:layout_width="99dp"
         android:layout_height="42dp"

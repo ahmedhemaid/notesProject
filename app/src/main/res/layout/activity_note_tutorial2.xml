@@ -64,6 +64,7 @@
         app:srcCompat="@drawable/switchh1" />
 
     <Button
+        android:onClick="OnClickNextInSecendPage"
         android:id="@+id/btn_skipe"
         android:layout_width="99dp"
         android:layout_height="42dp"

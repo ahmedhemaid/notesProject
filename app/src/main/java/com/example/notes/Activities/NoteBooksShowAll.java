@@ -96,7 +96,7 @@ public class NoteBooksShowAll extends AppCompatActivity {
         bookAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this, homeee.class);
+        Intent intent=new Intent(this, NoteTutorial1.class);
         startActivity(intent);
 
     }

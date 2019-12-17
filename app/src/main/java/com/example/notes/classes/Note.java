@@ -1,12 +1,13 @@
 package com.example.notes.classes;
 
 public class Note {
+    private int categoryId;
     private int idOfNote;
     private String titleOfNote;
     private String contextOfNote;
     private String dateOfNote;
 
-    public Note(int idOfNote ,String titleOfNote,String contextOfNote,String dateOfNote ){
+    public Note(int idOfNote,String titleOfNote,String contextOfNote,String dateOfNote ){
         this.idOfNote=idOfNote;
         this.titleOfNote=titleOfNote;
         this.contextOfNote=contextOfNote;
@@ -20,6 +21,16 @@ public class Note {
     public void setIdOfNote(int idOfNote) {
         this.idOfNote = idOfNote;
     }
+    //categoryId setter and getter
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
     //title getter and setter
     public String getTitleOfNote() {
         return titleOfNote;
