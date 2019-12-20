@@ -84,12 +84,12 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
             }
         });
-        //onCLick
+        //onNoteCLick
         noteAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                String name=notes.get(position).getTitleOfNote();
-                Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(HomeActivity.this,EditNoteActivity.class);
+                startActivity(intent);
             }
         });
     }

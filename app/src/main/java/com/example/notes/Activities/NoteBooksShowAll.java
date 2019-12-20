@@ -69,8 +69,8 @@ public class NoteBooksShowAll extends AppCompatActivity {
         bookAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                String name=books.get(position).getName();
-                Toast.makeText(NoteBooksShowAll.this, name, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(NoteBooksShowAll.this,NotesShowAll.class);
+                startActivity(intent);
             }
         });
         //search filter
