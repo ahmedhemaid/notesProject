@@ -44,7 +44,7 @@
         android:layout_marginBottom="72dp"
         android:background="#7B1E58"
         android:text="Sing in"
-        android:onClick="singin"
+        android:onClick="signup_splash"
         android:textAllCaps="false"
         android:textColor="#FFF9F9"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,12 +64,12 @@
         app:srcCompat="@mipmap/home_foreground" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView_signin_splash"
         android:layout_width="115dp"
         android:layout_height="58dp"
         android:layout_marginBottom="28dp"
         android:gravity="center"
-        android:onClick="singup"
+        android:onClick="signin_splash"
         android:text="Sing up"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"

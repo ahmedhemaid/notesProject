@@ -6,12 +6,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notes.R;
+import com.example.notes.adapters.AllNotebooksAdapter;
 import com.example.notes.adapters.AllNotesAdapter;
 import com.example.notes.classes.Note;
 import java.util.ArrayList;
@@ -52,6 +54,14 @@ public class NotesShowAll extends AppCompatActivity {
         noteRecyclerView.setLayoutManager(noteLayoutManager);
          notesAdapter= new AllNotesAdapter(notes);
         noteRecyclerView.setAdapter(notesAdapter);
+        //onCLick
+        notesAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                String name=notes.get(position).getContextOfNote();
+                Toast.makeText(NotesShowAll.this, name, Toast.LENGTH_SHORT).show();
+            }
+        });
 //search filter
         EditText searchEditText=findViewById(R.id.search_edit_text_notes);
         searchEditText.addTextChangedListener(new TextWatcher() {
@@ -83,7 +93,7 @@ public class NotesShowAll extends AppCompatActivity {
         notesAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this, MainActivity.class);
+        Intent intent=new Intent(this, HomeActivity.class);
         startActivity(intent);
 
     }

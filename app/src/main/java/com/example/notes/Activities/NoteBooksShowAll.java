@@ -10,6 +10,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.notes.R;
 import com.example.notes.adapters.AllNotebooksAdapter;
@@ -58,13 +59,20 @@ public class NoteBooksShowAll extends AppCompatActivity {
         books.add(new NoteBook(1,"Pharmacy",R.drawable.book27));
         books.add(new NoteBook(1,"Shopping",R.drawable.book28));
         books.add(new NoteBook(1,"ToDo List",R.drawable.book29));
-        books.add(new NoteBook(1,"My Notes",R.drawable.book30));
         //recycler of notebooks
         bookRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_all_notebooks);
         bookLayoutManager = new GridLayoutManager(this,3,RecyclerView.VERTICAL, false);
         bookRecyclerView.setLayoutManager(bookLayoutManager);
         bookAdapter = new AllNotebooksAdapter(books);
         bookRecyclerView.setAdapter(bookAdapter);
+        //onCLick
+        bookAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                String name=books.get(position).getName();
+                Toast.makeText(NoteBooksShowAll.this, name, Toast.LENGTH_SHORT).show();
+            }
+        });
         //search filter
         EditText searchEditText=findViewById(R.id.search_edit_text);
         searchEditText.addTextChangedListener(new TextWatcher() {
@@ -96,7 +104,7 @@ public class NoteBooksShowAll extends AppCompatActivity {
         bookAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this, NoteTutorial1.class);
+        Intent intent=new Intent(this, HomeActivity.class);
         startActivity(intent);
 
     }

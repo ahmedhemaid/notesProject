@@ -4,23 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.notes.R;
+import com.example.notes.adapters.AllNotebooksAdapter;
 import com.example.notes.adapters.NotesAdapter;
 import com.example.notes.adapters.horizontalAdapter;
 import com.example.notes.classes.Note;
 import com.example.notes.classes.NoteBook;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     //book tools
     private RecyclerView bookRecyclerView;
     horizontalAdapter bookAdapter;
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         //Books data
         books=new ArrayList<NoteBook>();
         books.add(new NoteBook(1,"ToDo List",R.drawable.book1));
@@ -77,7 +76,22 @@ public class MainActivity extends AppCompatActivity {
         noteRecyclerView.setLayoutManager(noteLayoutManager);
         noteAdapter = new NotesAdapter(notes);
         noteRecyclerView.setAdapter(noteAdapter);
-
+        //onBookCLick
+        bookAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                String name=books.get(position).getName();
+                Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
+            }
+        });
+        //onCLick
+        noteAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                String name=notes.get(position).getTitleOfNote();
+                Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void OnClickShowAllNotebooks(View view) {
@@ -88,5 +102,11 @@ public class MainActivity extends AppCompatActivity {
     public void OnClickShowAllNotes(View view) {
         Intent intent=new Intent(this,NotesShowAll.class);
         startActivity(intent);
+    }
+
+    public void onClickLogOut(View view) {
+        Intent intent=new Intent(this,NoteTutorial1.class);
+        startActivity(intent);
+        finish();
     }
 }

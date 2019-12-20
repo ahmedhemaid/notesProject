@@ -18,11 +18,18 @@ import java.util.ArrayList;
 public class AllNotebooksAdapter extends RecyclerView.Adapter<AllNotebooksAdapter.ViewHolder> {
 
     private ArrayList<NoteBook> data;
-
+    private OnItemClickListener mListener;
     public AllNotebooksAdapter(ArrayList<NoteBook> data){
         this.data = data;
     }
 
+    //onItemClick
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener=listener;
+    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
@@ -54,7 +61,17 @@ public class AllNotebooksAdapter extends RecyclerView.Adapter<AllNotebooksAdapte
             super(itemView);
             bookImage=itemView.findViewById(R.id.book_image);
             bookName=itemView.findViewById(R.id.book_name);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        int position=getAdapterPosition();
+                        if (position!=RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

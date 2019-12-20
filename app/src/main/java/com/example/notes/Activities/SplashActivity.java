@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.notes.Activities.SinginActicity;
-import com.example.notes.Activities.SingupActivity;
 import com.example.notes.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -19,13 +17,14 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-    public void singup(View view) {
-        Intent singup = new Intent(this, SingupActivity.class);
-        startActivity(singup);
+    public void signup_splash(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
-    public void singin(View view) {
 
-        Intent singin = new Intent(this, SinginActicity.class);
-        startActivity(singin); }
+    public void signin_splash(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 }

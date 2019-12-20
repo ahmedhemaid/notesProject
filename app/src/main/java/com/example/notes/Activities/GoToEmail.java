@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.notes.R;
 
-public class gotoemail extends AppCompatActivity {
+public class GoToEmail extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

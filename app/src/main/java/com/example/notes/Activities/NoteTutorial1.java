@@ -29,4 +29,9 @@ Button btn_next;
         Intent intent=new Intent(this,NoteTutorial2.class);
         startActivity(intent);
     }
+
+    public void onClickSkip1(View view) {
+        Intent intent=new Intent(this,SplashActivity.class);
+        startActivity(intent);
+    }
 }

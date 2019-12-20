@@ -17,10 +17,19 @@ import java.util.ArrayList;
 public class horizontalAdapter extends RecyclerView.Adapter<horizontalAdapter.ViewHolder> {
 
     private ArrayList<NoteBook> data;
-
+    private AllNotebooksAdapter.OnItemClickListener mListener;
     public horizontalAdapter(ArrayList<NoteBook> data){
         this.data = data;
     }
+
+    //onItemClick
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(AllNotebooksAdapter.OnItemClickListener listener){
+        mListener=listener;
+    }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -49,7 +58,17 @@ public class horizontalAdapter extends RecyclerView.Adapter<horizontalAdapter.Vi
             super(itemView);
             bookImage=itemView.findViewById(R.id.book_image);
             bookName=itemView.findViewById(R.id.book_name);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        int position=getAdapterPosition();
+                        if (position!=RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
-    }
+        }
 }
