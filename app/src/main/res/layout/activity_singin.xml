@@ -27,7 +27,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:onClick="singin"
-        android:text="Sing in"
+        android:text="Sign in"
         android:textColor="#1A1824"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
