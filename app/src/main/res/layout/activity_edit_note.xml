@@ -71,15 +71,15 @@ android:text="Apparently we had reached a great height in the atmosphere, for th
 
     <TextView
         android:id="@+id/done_edit_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="16dp"
-        android:text="Done"
+        android:layout_width="53dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="32dp"
+        android:background=""
+        android:text="save"
         android:textAllCaps="false"
         android:textColor="#7B1E58"
-        android:background=""
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="parent" />
 
