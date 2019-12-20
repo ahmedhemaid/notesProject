@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.edit_noteActivity">
+    tools:context=".Activities.EditNoteActivity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -60,7 +60,7 @@
         android:layout_marginHorizontal="10dp"
         android:background="@null"
         android:gravity="left"
-android:text="Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased."
+        android:text="Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased."
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

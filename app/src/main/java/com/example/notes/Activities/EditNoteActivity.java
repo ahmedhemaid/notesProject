@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.notes.R;
 
-public class edit_noteActivity extends AppCompatActivity {
+public class EditNoteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
