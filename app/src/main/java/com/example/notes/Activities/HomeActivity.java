@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.notes.R;
-import com.example.notes.adapters.AllCategoryAdapter;
 import com.example.notes.adapters.AllNotebooksAdapter;
 import com.example.notes.adapters.NotesAdapter;
 import com.example.notes.adapters.horizontalAdapter;
 import com.example.notes.classes.Note;
 import com.example.notes.classes.NoteBook;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -87,12 +84,12 @@ public class HomeActivity extends AppCompatActivity {
                 Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
             }
         });
-        //onNoteCLick
+        //onCLick
         noteAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Intent intent=new Intent(HomeActivity.this,EditNoteActivity.class);
-                startActivity(intent);
+                String name=notes.get(position).getTitleOfNote();
+                Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -108,12 +105,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onClickLogOut(View view) {
-        FirebaseAuth.getInstance().signOut();
-        finish();
-    }
-
-    public void OnClickCreateNewNoteBook(View view) {
-        Intent intent=new Intent(this, ChooseCategoryStyleActivity.class);
+        Intent intent=new Intent(this,NoteTutorial1.class);
         startActivity(intent);
+        finish();
     }
 }

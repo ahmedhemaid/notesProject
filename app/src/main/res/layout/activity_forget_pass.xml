@@ -77,8 +77,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="backFromForgetPass"
-        app:srcCompat="@drawable/back"
-        tools:ignore="VectorDrawableCompat" />
+        android:onClick="back"
+        app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

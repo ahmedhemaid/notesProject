@@ -52,7 +52,7 @@ public class NotesShowAll extends AppCompatActivity {
         noteRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_all_notes);
         noteLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         noteRecyclerView.setLayoutManager(noteLayoutManager);
-         notesAdapter= new AllNotesAdapter(notes);
+        notesAdapter= new AllNotesAdapter(notes);
         noteRecyclerView.setAdapter(notesAdapter);
         //onCLick
         notesAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
@@ -93,13 +93,8 @@ public class NotesShowAll extends AppCompatActivity {
         notesAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this, this.getParent().getClass());
+        Intent intent=new Intent(this, HomeActivity.class);
         startActivity(intent);
 
-    }
-
-    public void onFabClicked_showAllNotes(View view) {
-        Intent intent=new Intent(this,AddNewNoteActivity.class);
-        startActivity(intent);
     }
 }

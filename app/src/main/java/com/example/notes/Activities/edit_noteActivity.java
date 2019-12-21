@@ -8,15 +8,17 @@ import android.view.View;
 
 import com.example.notes.R;
 
-public class ForgetPassActivity extends AppCompatActivity {
+public class edit_noteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget_pass);
+        setContentView(R.layout.activity_edit_note);
     }
-    public void back(View view) {
-        Intent back = new Intent(this, LoginActivity.class);
-        startActivity(back);
+
+    public void showall(View view) {
+        Intent showall=new Intent(this,NotesShowAll.class);
+        startActivity(showall);
+
     }
 }

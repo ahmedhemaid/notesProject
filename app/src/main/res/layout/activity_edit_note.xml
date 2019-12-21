@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.EditNoteActivity">
+    tools:context=".Activities.edit_noteActivity">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="371dp"
         android:layout_marginRight="371dp"
-        android:onClick="OnClickBackFromEditNote"
+        android:onClick="showall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
         android:layout_marginHorizontal="10dp"
         android:background="@null"
         android:gravity="left"
-        android:text="Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased."
+android:text="Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased."
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,15 +71,15 @@
 
     <TextView
         android:id="@+id/done_edit_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="16dp"
-        android:text="Save"
+        android:layout_width="53dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="32dp"
+        android:background=""
+        android:text="save"
         android:textAllCaps="false"
         android:textColor="#7B1E58"
-        android:background="@null"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -69,8 +69,8 @@ public class NoteBooksShowAll extends AppCompatActivity {
         bookAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Intent intent=new Intent(NoteBooksShowAll.this,NotesShowAll.class);
-                startActivity(intent);
+                String name=books.get(position).getName();
+                Toast.makeText(NoteBooksShowAll.this, name, Toast.LENGTH_SHORT).show();
             }
         });
         //search filter
@@ -104,12 +104,8 @@ public class NoteBooksShowAll extends AppCompatActivity {
         bookAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this, this.getParent().getClass());
+        Intent intent=new Intent(this, HomeActivity.class);
         startActivity(intent);
-    }
 
-    public void onFabClicked_showAllNoteBooks(View view) {
-        Intent intent=new Intent(this,ChooseCategoryStyleActivity.class);
-        startActivity(intent);
     }
 }

@@ -11,10 +11,6 @@ public class NoteBook {
         this.name=name;
         this.imageIcon=imageIcon;
     }
-    public NoteBook(int id, int imageIcon){
-        this.id=id;
-        this.imageIcon=imageIcon;
-    }
 // id getter and setter
     public void setId(int id) {
         this.id = id;
