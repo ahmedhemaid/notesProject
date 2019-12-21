@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.ChooseCategoryStyleActivity">
+    <ImageView
+        android:onClick="OnClickBackFromAllStylesToAddNewNotebook"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/backspacepurple"
+        ></ImageView>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Choose your own style"
+    android:fontFamily="serif"
+    android:textColor="#535151"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="60dp"
+    android:textSize="24sp"
+    ></TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_all_categories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="120dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

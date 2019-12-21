@@ -15,10 +15,8 @@ public class EditNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
     }
-
-    public void showall(View view) {
-        Intent showall=new Intent(this,NotesShowAll.class);
-        startActivity(showall);
-
+    public void OnClickBackFromEditNote(View view) {
+        Intent intent=new Intent(this, this.getParent().getClass());
+        startActivity(intent);
     }
 }

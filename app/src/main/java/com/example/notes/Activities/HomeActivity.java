@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.notes.R;
+import com.example.notes.adapters.AllCategoryAdapter;
 import com.example.notes.adapters.AllNotebooksAdapter;
 import com.example.notes.adapters.NotesAdapter;
 import com.example.notes.adapters.horizontalAdapter;
@@ -108,5 +109,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent=new Intent(this,NoteTutorial1.class);
         startActivity(intent);
         finish();
+    }
+
+    public void OnClickCreateNewNoteBook(View view) {
+        Intent intent=new Intent(this, ChooseCategoryStyleActivity.class);
+        startActivity(intent);
     }
 }

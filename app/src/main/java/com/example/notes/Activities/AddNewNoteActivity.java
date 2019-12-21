@@ -27,4 +27,9 @@ public class AddNewNoteActivity extends AppCompatActivity {
         startActivity(intent);
         Toast.makeText(this, "new note added", Toast.LENGTH_SHORT).show();
     }
+
+    public void backFromAddNewActivity(View view) {
+        Intent intent=new Intent(this, this.getParent().getClass());
+        startActivity(intent);
+    }
 }

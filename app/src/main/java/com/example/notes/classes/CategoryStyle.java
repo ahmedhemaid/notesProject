@@ -1,17 +1,9 @@
 package com.example.notes.classes;
 
-import android.graphics.drawable.Icon;
-
-public class NoteBook {
+public class CategoryStyle {
     private int id;
-    private String name;
     private int imageIcon;
-    public NoteBook(int id, String name, int imageIcon){
-        this.id=id;
-        this.name=name;
-        this.imageIcon=imageIcon;
-    }
-    public NoteBook(int id, int imageIcon){
+    public CategoryStyle(int id, int imageIcon){
         this.id=id;
         this.imageIcon=imageIcon;
     }
@@ -21,13 +13,6 @@ public class NoteBook {
     }
     public int getId() {
         return id;
-    }
-//  name getter and setter
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 //   image getter and setter
     public int getImageIcon() {

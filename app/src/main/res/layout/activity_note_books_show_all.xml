@@ -48,6 +48,7 @@
         ></androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:onClick="onFabClicked_showAllNoteBooks"
         android:id="@+id/fab_show_notebooks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
