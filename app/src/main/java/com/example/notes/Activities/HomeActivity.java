@@ -10,6 +10,8 @@ import com.example.notes.adapters.NotesAdapter;
 import com.example.notes.adapters.horizontalAdapter;
 import com.example.notes.classes.Note;
 import com.example.notes.classes.NoteBook;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -106,8 +108,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onClickLogOut(View view) {
-        Intent intent=new Intent(this,NoteTutorial1.class);
-        startActivity(intent);
+        FirebaseAuth.getInstance().signOut();
         finish();
     }
 
