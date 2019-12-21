@@ -12,8 +12,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.notes.R;
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,15 +27,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
+
+
     FirebaseAuth mAuth;
     EditText emailEt,passwordEt;
-    Button signUpBtn;
+    //    Button signUpBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        //firebase instance
+//
+////        firebase instance
+//
 //        mAuth = FirebaseAuth.getInstance();
+//
 //        FirebaseUser user = mAuth.getCurrentUser();
 //        if (user!=null)
 //        {
@@ -39,24 +48,63 @@ public class RegisterActivity extends AppCompatActivity {
 //            startActivity(intent);
 //        }
 //
-//        emailEt = findViewById(R.id.email_edit_text_sign_up);
-//        passwordEt = findViewById(R.id.password_edit_text_sign_up);
+        emailEt = (EditText) findViewById(R.id.email_edit_text_sign_up);
+        passwordEt =(EditText) findViewById(R.id.password_edit_text_sign_up);
+        mAuth=FirebaseAuth.getInstance();
+
+
+
 //        signUpBtn = findViewById(R.id.sign_up_btn);
 //        signUpBtn.setOnClickListener(v->{
 //            doSignUp(emailEt.getText().toString() , passwordEt.getText().toString());
 //        });
+
+
+
+
     }
+    public void singup_do(View view) {
+
+
+        ( mAuth.createUserWithEmailAndPassword(emailEt.getText().toString(),passwordEt.getText().toString()))
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+                            Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+                            Intent intent =new Intent(RegisterActivity.this,LoginActivity.class);
+                            startActivity(intent);
+
+
+                        }
+                        else {
+                            // If sign in fails, display a message to the user.
+                            Log.d("123", "onComplete: "+task.getException());
+                            Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                });
+
+
+
+    }
+
     public void home(View view) {
         Intent home = new Intent(this, NoteTutorial1.class);
         startActivity(home);
     }
-//Go to Sign In
+    ////Go to Sign In
     public void signin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
-////belong to FireBase
-////SignUp method
+
+
+//belong to FireBase
+//SignUp method
 //    private void doSignUp(String email, String password) {
 //        mAuth.createUserWithEmailAndPassword(email, password)
 //                .addOnCompleteListener(this, task -> {
@@ -96,5 +144,4 @@ public class RegisterActivity extends AppCompatActivity {
 //                    }
 //
 //                });
-//    }
 }

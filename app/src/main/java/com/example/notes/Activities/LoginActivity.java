@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
-
+    FirebaseUser user;
     EditText emailEt , passwordEt;
     Button signUpBtn;
     FirebaseAuth mAuth;
@@ -34,20 +34,10 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user!=null)
-        {
-            Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
-            startActivity(intent);
-        }
+        user = mAuth.getCurrentUser();
+        Log.d("user", "onCreate: "+user);
 
-        emailEt = findViewById(R.id.edit_text_email_login);
-        passwordEt = findViewById(R.id.edit_text_password_login);
-        signUpBtn = findViewById(R.id.login_btn);
-        signUpBtn.setOnClickListener(v->{
-            doSignIn(emailEt.getText().toString() , passwordEt.getText().toString());
-        });
-    }
+            }
     public void home(View view) {
         Intent home = new Intent(this, NoteTutorial1.class);
         startActivity(home);
@@ -106,6 +96,22 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                 });
+    }
+
+    public void onClickSignIn(View view) {
+        if (user!=null)
+        {
+            Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
+            startActivity(intent);
+        }
+
+        emailEt = findViewById(R.id.edit_text_email_login);
+        passwordEt = findViewById(R.id.edit_text_password_login);
+        signUpBtn = findViewById(R.id.login_btn);
+        signUpBtn.setOnClickListener(v->{
+            doSignIn(emailEt.getText().toString() , passwordEt.getText().toString());
+        });
+
     }
 }
 
