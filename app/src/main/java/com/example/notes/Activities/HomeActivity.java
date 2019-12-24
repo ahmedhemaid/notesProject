@@ -44,6 +44,7 @@ public class HomeActivity extends AppCompatActivity {
     NotesAdapter noteAdapter;
     private RecyclerView.LayoutManager noteLayoutManager;
     static ArrayList<Note> notes=new ArrayList<>();
+    String currentNoteBookId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +85,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 String name=books.get(position).name;
                 String id=books.get(position).id;
+                currentNoteBookId=id;
                 getIntent().putExtra("category id",id);
                 Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
             }
