@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".Activities.NotesShowAll">
     <ImageView
         android:onClick="OnClickBackFromNotebooksToHome"
@@ -59,6 +60,7 @@
         ></androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:onClick="onFabClicked_showAllNotes"
         android:id="@+id/fab_show_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

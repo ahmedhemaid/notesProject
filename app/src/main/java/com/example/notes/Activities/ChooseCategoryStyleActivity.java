@@ -60,15 +60,15 @@ public class ChooseCategoryStyleActivity extends AppCompatActivity {
         categoryAdapter.setOnItemClickListener(new AllCategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Intent intent=new Intent(ChooseCategoryStyleActivity.this,getParent().getClass());
-                intent.putExtra("categoryStyleId" ,categories.get(position).getId()+"");
+                Intent intent=new Intent(ChooseCategoryStyleActivity.this,AddNewCategoryActivity.class);
+                intent.putExtra("categoryStyleId" ,categories.get(position).getImageIcon());
                 startActivity(intent);
+                finish();
             }
         });
     }
 
     public void OnClickBackFromAllStylesToAddNewNotebook(View view) {
-        Intent intent =new Intent(this,this.getParent().getClass());
-        startActivity(intent);
+       finish();
     }
 }

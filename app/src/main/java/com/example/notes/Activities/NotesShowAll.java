@@ -30,35 +30,19 @@ public class NotesShowAll extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_show_all);
         //notes data
-        notes=new ArrayList<Note>();
-        notes.add(new Note(1,"market","don't forget to bring so potatos and we need 2 kilos of tomato with a carton of milk","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
-        notes.add(new Note(1,"market","don't forget to bring so potatos","12/16/19"));
+        notes=HomeActivity.notes;
+
         //recycler of notes
         noteRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_all_notes);
         noteLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         noteRecyclerView.setLayoutManager(noteLayoutManager);
-        notesAdapter= new AllNotesAdapter(notes);
+         notesAdapter= new AllNotesAdapter(notes);
         noteRecyclerView.setAdapter(notesAdapter);
         //onCLick
         notesAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                String name=notes.get(position).getContextOfNote();
+                String name=notes.get(position).contextOfNote;
                 Toast.makeText(NotesShowAll.this, name, Toast.LENGTH_SHORT).show();
             }
         });
@@ -86,15 +70,19 @@ public class NotesShowAll extends AppCompatActivity {
         ArrayList<Note> filteredList = new ArrayList<>();
 
         for (Note item : notes) {
-            if (item.getTitleOfNote().toLowerCase().contains(text.toLowerCase())) {
+            if (item.titleOfNote.toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
         notesAdapter.filterList(filteredList);
     }
     public void OnClickBackFromNotebooksToHome(View view) {
-        Intent intent=new Intent(this, HomeActivity.class);
-        startActivity(intent);
+        finish();
 
+    }
+
+    public void onFabClicked_showAllNotes(View view) {
+        Intent intent=new Intent(this,AddNewNoteActivity.class);
+        startActivity(intent);
     }
 }

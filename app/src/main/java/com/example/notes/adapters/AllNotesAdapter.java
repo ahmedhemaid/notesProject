@@ -43,9 +43,9 @@ public class AllNotesAdapter extends RecyclerView.Adapter<AllNotesAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.noteTitle.setText(data.get(position).getTitleOfNote());
-        holder.noteContext.setText(data.get(position).getContextOfNote());
-        holder.noteDate.setText(data.get(position).getDateOfNote());
+        holder.noteTitle.setText(data.get(position).titleOfNote);
+        holder.noteContext.setText(data.get(position).contextOfNote);
+        holder.noteDate.setText(data.get(position).dateOfNote+"");
     }
 
     @Override

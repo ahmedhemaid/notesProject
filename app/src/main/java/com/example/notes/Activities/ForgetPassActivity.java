@@ -15,8 +15,7 @@ public class ForgetPassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pass);
     }
-    public void back(View view) {
-        Intent back = new Intent(this, LoginActivity.class);
-        startActivity(back);
+    public void backFromForgetPass(View view) {
+       finish();
     }
 }

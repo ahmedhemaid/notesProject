@@ -2,35 +2,51 @@ package com.example.notes.classes;
 
 import android.graphics.drawable.Icon;
 
+import com.example.notes.Activities.HomeActivity;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.util.ArrayList;
+
+@IgnoreExtraProperties
 public class NoteBook {
-    private int id;
-    private String name;
-    private int imageIcon;
-    public NoteBook(int id, String name, int imageIcon){
-        this.id=id;
-        this.name=name;
-        this.imageIcon=imageIcon;
+    public String id;
+    public String name;
+    public int imageIcon;
+
+    public NoteBook() {
     }
-// id getter and setter
-    public void setId(int id) {
+
+    public NoteBook(String id, String name, int imageIcon) {
         this.id = id;
-    }
-    public int getId() {
-        return id;
-    }
-//  name getter and setter
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
         this.name = name;
-    }
-//   image getter and setter
-    public int getImageIcon() {
-        return imageIcon;
-    }
-    public void setImageIcon(int imageIcon) {
         this.imageIcon = imageIcon;
+     }
+
+    public static String generateCategoryID(){
+       return FirebaseDatabase.getInstance().getReference().child("user").child("category").push().getKey();
+
     }
+//// id getter and setter
+//    public void setId(int id) {
+//        this.id = id;
+//    }
+//    public int getId() {
+//        return id;
+//    }
+////  name getter and setter
+//    public String getName() {
+//        return name;
+//    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+////   image getter and setter
+//    public int getImageIcon() {
+//        return imageIcon;
+//    }
+//    public void setImageIcon(int imageIcon) {
+//        this.imageIcon = imageIcon;
+//    }
 
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddNewCategoryActivity">
+
+    <ImageView
+        android:id="@+id/book_category_image"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:src="@drawable/book29"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        />
+
+    <TextView
+        android:onClick="OnClickCancle"
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:text="cancel"
+        android:textSize="17dp"
+        android:textStyle="normal" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:onClick="OnClickShowStyles"
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#7B1E58"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="#FFF"
+        app:borderWidth="2dp"
+        app:srcCompat="@drawable/ic_edit_black_24dp"
+        tools:ignore="VectorDrawableCompat"
+        android:layout_alignBottom="@id/book_category_image"
+        android:layout_alignLeft="@id/book_category_image"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="-10dp"
+        />
+
+    <Button
+        android:onClick="onClickSave"
+        android:id="@+id/button2"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/custtombotom1"
+        android:text="Save"
+        android:textColor="#FFF"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/edit_text_category_name"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Category Name"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/book_category_image"/>
+
+
+</RelativeLayout>

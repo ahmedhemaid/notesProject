@@ -23,14 +23,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="60dp"
-        android:textColor="#AD2DDB"></TextView>
     <ImageView
         android:onClick="onClickLogOut"
         android:layout_width="30dp"
@@ -38,7 +30,7 @@
         android:src="@drawable/logout1"
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="8dp"
         ></ImageView>
     <View
         android:id="@+id/view"
@@ -69,6 +61,7 @@
         android:textColor="#7B1E58"
         ></TextView>
     <Button
+        android:onClick="OnClickCreateNewNoteBook"
         android:layout_width="90dp"
         android:layout_height="119dp"
         android:background="@drawable/addnotebook"

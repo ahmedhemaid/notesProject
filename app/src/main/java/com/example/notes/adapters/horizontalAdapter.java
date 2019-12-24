@@ -40,8 +40,8 @@ public class horizontalAdapter extends RecyclerView.Adapter<horizontalAdapter.Vi
     }
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bookName.setText(data.get(position).getName());
-        holder.bookImage.setImageResource(data.get(position).getImageIcon());
+        holder.bookName.setText(data.get(position).name);
+        holder.bookImage.setImageResource(data.get(position).imageIcon);
     }
 
     @Override
