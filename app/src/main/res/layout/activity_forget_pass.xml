@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:background="#7B1E58"
-
+        android:onClick="onClickrecover"
         android:text="Recover password"
         android:textAllCaps="false"
         android:textColor="#FFF9F9"

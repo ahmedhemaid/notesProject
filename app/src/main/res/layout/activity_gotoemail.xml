@@ -49,6 +49,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="45dp"
         android:text="Go to email"
+        android:onClick="GoToEmail"
         android:background="@drawable/custtombotom1"
         android:textColor="#FFF"
         android:textSize="16dp"
@@ -60,9 +61,10 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
+        android:onClick="OnClickcancel"
         android:id="@+id/imageView4"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="21dp"
+        android:layout_height="18dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
