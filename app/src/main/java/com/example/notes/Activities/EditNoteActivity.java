@@ -36,9 +36,8 @@ public class EditNoteActivity extends AppCompatActivity {
     }
 
     public void OnClickSave(View view) {
-        Note note=HomeActivity.notes.get(getIntent().getIntExtra("note position",0));
-        note.titleOfNote=nName.getText().toString();
-        note.contextOfNote=nContext.getText().toString();
+        Note note=new Note(HomeActivity.currentNotebookId,HomeActivity.notes.get(getIntent().getIntExtra("note position",0)).idOfNote,nName.getText().toString(),nContext.getText().toString(),new Date().getTime());
+        HomeActivity.writeNote(note);
         finish();
     }
 }
