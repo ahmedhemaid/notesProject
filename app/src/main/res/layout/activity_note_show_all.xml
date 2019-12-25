@@ -17,17 +17,6 @@
         android:src="@drawable/backspacepurple"
         ></ImageView>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Done"
-        android:textColor="#7B1E58"
-        android:textSize="17sp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="16dp"
-        >
-        ></TextView>
-    <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textSize="34sp"
