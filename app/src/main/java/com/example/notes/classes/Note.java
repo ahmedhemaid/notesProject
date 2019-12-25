@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Note {
-    public String categoryId;
+    public String categoryId="public";
     public String idOfNote;
     public String titleOfNote;
     public String contextOfNote;

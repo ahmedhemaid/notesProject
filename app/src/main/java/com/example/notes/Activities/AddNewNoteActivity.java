@@ -30,9 +30,10 @@ public class AddNewNoteActivity extends AppCompatActivity {
     }
 
     public void OnClickAdd(View view) {
-        Note note=new Note(getIntent().getStringExtra("category id"),Note.generateNoteID(),title.getText().toString(),context.getText().toString(),new Date().getTime());
+        Intent intent=new Intent();
+        Note note=new Note(HomeActivity.currentNotebookId,Note.generateNoteID(),title.getText().toString(),context.getText().toString(),new Date().getTime());
         HomeActivity.writeNote(note);
-        Toast.makeText(this, "new note added", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Note is added successfully" , Toast.LENGTH_SHORT).show();
         finish();
     }
 

@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
@@ -31,25 +32,25 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
-
+    public static String currentNotebookId="non";
     private static DatabaseReference mDatabase;
     public static Integer currentCateId=0;
+    public static ValueEventListener valueEventListener;
     //book tools
     private RecyclerView bookRecyclerView;
-    horizontalAdapter bookAdapter;
+    static horizontalAdapter bookAdapter;
     private RecyclerView.LayoutManager bookLayoutManager;
     static ArrayList<NoteBook> books=new ArrayList<>();
     //note tools
     private RecyclerView noteRecyclerView;
-    NotesAdapter noteAdapter;
+    static NotesAdapter noteAdapter;
     private RecyclerView.LayoutManager noteLayoutManager;
     static ArrayList<Note> notes=new ArrayList<>();
-    String currentNoteBookId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         //Initialize Realtime Reference.
         mDatabase = FirebaseDatabase.getInstance().getReference();
         //sharedPreferences
@@ -57,8 +58,6 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences.Editor editor=preferences.edit();
         editor.putBoolean("is_logged_in",true);
         editor.apply();
-        //Books data
-
         //recycler of notebooks
         bookRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_notebooks);
         bookRecyclerView.setHasFixedSize(true);
@@ -66,9 +65,8 @@ public class HomeActivity extends AppCompatActivity {
         bookRecyclerView.setLayoutManager(bookLayoutManager);
         bookAdapter = new horizontalAdapter(books);
         bookRecyclerView.setAdapter(bookAdapter);
+        //notebooks data
         initNotebookData();
-       //notes data
-
         //recycler of notes
         noteRecyclerView = (RecyclerView) findViewById(R.id.note_recycler_view);
         noteRecyclerView.setHasFixedSize(true);
@@ -76,7 +74,6 @@ public class HomeActivity extends AppCompatActivity {
         noteRecyclerView.setLayoutManager(noteLayoutManager);
         noteAdapter = new NotesAdapter(notes);
         noteRecyclerView.setAdapter(noteAdapter);
-        Toast.makeText(this, FirebaseAuth.getInstance().getUid(), Toast.LENGTH_SHORT).show();
         //notes data
         initNoteData();
         //onBookCLick
@@ -85,26 +82,14 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 String name=books.get(position).name;
                 String id=books.get(position).id;
-                currentNoteBookId=id;
+                currentNotebookId=id;
+                initNoteData();
                 getIntent().putExtra("category id",id);
-                Toast.makeText(HomeActivity.this, name, Toast.LENGTH_SHORT).show();
-            }
-        });
-//        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
-        //onNoteCLick
-        noteAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent=new Intent(HomeActivity.this,EditNoteActivity.class);
-                intent.putExtra("note name",notes.get(position).titleOfNote);
-                intent.putExtra("note context",notes.get(position).contextOfNote);
-                intent.putExtra("note date",notes.get(position).dateOfNote);
-                startActivity(intent);
             }
         });
     }
-    //get notebook array from the fireBase database
-    public void initNotebookData() {
+    //get notebooks from the fireBase database
+    public static void initNotebookData() {
         FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth.getInstance().getUid()).child("NoteBook")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -122,16 +107,21 @@ public class HomeActivity extends AppCompatActivity {
                 });
     }
 
-    //get notebook array from the fireBase database
-    public void initNoteData() {
+    //get notes from the fireBase database
+    public static void initNoteData() {
         FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth.getInstance().getUid()).child("Note")
-                .addValueEventListener(new ValueEventListener() {
+                .addValueEventListener(valueEventListener=new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         notes.clear();
                         for(DataSnapshot snapshot: dataSnapshot.getChildren() ){
                             Note note = snapshot.getValue(Note.class);
-                            notes.add(note);
+                            if (note.categoryId.equals(currentNotebookId)) {
+                                notes.add(note);
+                            }
+                            else if (currentNotebookId.equals("non")) {
+                                notes.add(note);
+                            }
                         }
                         noteAdapter.notifyDataSetChanged();
                     }
@@ -140,29 +130,29 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
     }
-
+    //add notebook in firebase database
     public static void writeNotebook(NoteBook noteBook) {
         Log.d("FIREBASE", "Writing notebook");
         String userId =FirebaseAuth.getInstance().getUid();
         mDatabase.child("User").child(userId).child("NoteBook").child(noteBook.id).setValue(noteBook);
     }
-
+    //add note in firebase database
     public static void writeNote(Note note) {
         Log.d("FIREBASE", "Writing notebook");
         String userId =FirebaseAuth.getInstance().getUid();
         mDatabase.child("User").child(userId).child("Note").child(note.idOfNote).setValue(note);
     }
-
+    //go to all notebooks activity
     public void OnClickShowAllNotebooks(View view) {
         Intent intent=new Intent(this,NoteBooksShowAll.class);
         startActivity(intent);
     }
-
+    //go to all notes activity
     public void OnClickShowAllNotes(View view) {
         Intent intent=new Intent(this,NotesShowAll.class);
         startActivity(intent);
     }
-
+    //logout
     public void onClickLogOut(View view) {
         SharedPreferences preferences=getSharedPreferences("Prefs",MODE_PRIVATE);
         SharedPreferences.Editor editor=preferences.edit();
@@ -173,7 +163,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
+    //create notebook
     public void OnClickCreateNewNoteBook(View view) {
         Intent intent=new Intent(this, AddNewCategoryActivity.class);
         startActivity(intent);

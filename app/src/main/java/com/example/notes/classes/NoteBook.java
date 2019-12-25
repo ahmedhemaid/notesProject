@@ -13,7 +13,7 @@ public class NoteBook {
     public String id;
     public String name;
     public int imageIcon;
-
+    public ArrayList<Note> mNotes=new ArrayList<>();
     public NoteBook() {
     }
 

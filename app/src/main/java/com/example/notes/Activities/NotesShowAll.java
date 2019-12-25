@@ -1,5 +1,7 @@
 package com.example.notes.Activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -30,24 +32,29 @@ public class NotesShowAll extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_show_all);
         //notes data
-        notes=HomeActivity.notes;
-
+        notes = HomeActivity.notes;
+        HomeActivity.initNoteData();
         //recycler of notes
         noteRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_all_notes);
         noteLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         noteRecyclerView.setLayoutManager(noteLayoutManager);
-         notesAdapter= new AllNotesAdapter(notes);
+        notesAdapter = new AllNotesAdapter(notes);
         noteRecyclerView.setAdapter(notesAdapter);
         //onCLick
         notesAdapter.setOnItemClickListener(new AllNotebooksAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                String name=notes.get(position).contextOfNote;
-                Toast.makeText(NotesShowAll.this, name, Toast.LENGTH_SHORT).show();
+                String name = notes.get(position).contextOfNote;
+                Intent intent = new Intent(NotesShowAll.this, EditNoteActivity.class);
+                intent.putExtra("note name", notes.get(position).titleOfNote);
+                intent.putExtra("note context", notes.get(position).contextOfNote);
+                intent.putExtra("note date", notes.get(position).dateOfNote);
+                intent.putExtra("note position", position);
+                startActivity(intent);
             }
         });
 //search filter
-        EditText searchEditText=findViewById(R.id.search_edit_text_notes);
+        EditText searchEditText = findViewById(R.id.search_edit_text_notes);
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -66,6 +73,7 @@ public class NotesShowAll extends AppCompatActivity {
         });
     }
 
+    //search filter
     private void filter(String text) {
         ArrayList<Note> filteredList = new ArrayList<>();
 
@@ -76,13 +84,29 @@ public class NotesShowAll extends AppCompatActivity {
         }
         notesAdapter.filterList(filteredList);
     }
+
+    //back button
     public void OnClickBackFromNotebooksToHome(View view) {
         finish();
 
     }
 
+    //add note
     public void onFabClicked_showAllNotes(View view) {
-        Intent intent=new Intent(this,AddNewNoteActivity.class);
-        startActivity(intent);
+        if (HomeActivity.currentNotebookId != "non") {
+            Intent intent = new Intent(this, AddNewNoteActivity.class);
+            startActivity(intent);
+        }
+        else {
+
+            new AlertDialog.Builder(this).setIcon(null).setTitle("Can't add note").setMessage("Please go back to the home window and select the category to add its note").setPositiveButton("Go to Home", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which){
+                    Intent intent=new Intent(NotesShowAll.this,HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }}).show();
+
+        }
     }
 }

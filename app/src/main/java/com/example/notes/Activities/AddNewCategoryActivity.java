@@ -42,7 +42,7 @@ public class AddNewCategoryActivity extends Activity {
         mNoteBook=new NoteBook(NoteBook.generateCategoryID(),categoryName,getIntent().getIntExtra("categoryStyleId",R.drawable.book29));
         HomeActivity.writeNotebook(mNoteBook);
         books.add(mNoteBook);
-        Toast.makeText(this, ""+categoryName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Notebook is added successfully", Toast.LENGTH_SHORT).show();
         getIntent().putExtra("CategoryName",categoryName);
         finish();
     }

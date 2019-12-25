@@ -67,6 +67,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:onClick="OnClickSave"
         android:id="@+id/done_edit_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

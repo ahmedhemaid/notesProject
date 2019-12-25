@@ -24,7 +24,7 @@ public class NoteBooksShowAll extends AppCompatActivity {
     private RecyclerView bookRecyclerView;
     AllNotebooksAdapter bookAdapter;
     private RecyclerView.LayoutManager bookLayoutManager;
-    ArrayList<NoteBook> books;
+    ArrayList<NoteBook> books=HomeActivity.books;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +41,7 @@ public class NoteBooksShowAll extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Intent intent=new Intent(NoteBooksShowAll.this,NotesShowAll.class);
+                HomeActivity.currentNotebookId=books.get(position).id;
                 startActivity(intent);
             }
         });

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.notes.R;
 import com.example.notes.classes.Note;
+import com.example.notes.classes.NoteBook;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +32,13 @@ public class EditNoteActivity extends AppCompatActivity {
         nDate.setText(dateText);
     }
     public void OnClickBackFromEditNote(View view) {
+        finish();
+    }
+
+    public void OnClickSave(View view) {
+        Note note=HomeActivity.notes.get(getIntent().getIntExtra("note position",0));
+        note.titleOfNote=nName.getText().toString();
+        note.contextOfNote=nContext.getText().toString();
         finish();
     }
 }
